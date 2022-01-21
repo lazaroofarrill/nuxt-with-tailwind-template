@@ -1,11 +1,11 @@
 <template>
-  <Tutorial />
+  <layout-header />
 </template>
 
-<script lang="ts">
+<script lang='ts'>
 import Vue from 'vue'
 
 export default Vue.extend({
-  name: 'IndexPage',
+  name: 'IndexPage'
 })
 </script>
