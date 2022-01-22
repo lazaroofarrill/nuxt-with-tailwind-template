@@ -38,6 +38,9 @@ const config: NuxtConfig = {
     ['nuxt-storm', { nested: true }],
     '@nuxtjs/composition-api/module'
   ],
+  tailwindcss: {
+    jit: true
+  },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
