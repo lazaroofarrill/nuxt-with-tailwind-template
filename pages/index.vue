@@ -28,7 +28,7 @@
     </div>
     <a class='btn'>Hello!</a>
     <icon-hero-academic-cap class='text-8xl' />
-    <div class='bg-blue-200 flex overflow-y-hidden'>
+    <div class='bg-blue-200 flex overflow-x-hidden'>
       <div class='bg-yellow-700 flex-1'>
         <div
           :style='`transform: translateY(${position}px) translateX(${position}px) rotate3d(0, 1, 0, ${position%360}deg)`'
@@ -236,18 +236,43 @@
       </div>
       <div class='bg-green-700 flex-1'>lol</div>
     </div>
-    <div class='bg-green-300'>
 
+    <div class='bg-green-300' ref='cv' @click='onClick'>
+      {{ svgFile }}
     </div>
   </div>
 </template>
 
 <script lang='ts'>
-import { defineComponent, onMounted, ref } from '@nuxtjs/composition-api'
+import { computed, defineComponent, onMounted, ref } from '@nuxtjs/composition-api'
+import { SVG } from '@svgdotjs/svg.js'
+
 
 export default defineComponent({
   setup() {
     const position = ref(0)
+    const cv = ref(null)
+    const ticker = ref(0)
+    const path = ref(null)
+
+    const svgFile = computed(() => {
+      console.log(cv)
+      if (cv.value) {
+        const el = cv.value as HTMLElement
+
+        const draw = SVG().addTo(el).size(300, 300)
+        // const rect = draw.rect(100, 100).attr({ fill: '#f06' })
+        path.value = draw.path('M10 80 C 40 150, 65 150, 95 80 S 150 10, 180 80')
+        path.value.fill('none')
+        path.value.stroke({ color: '#f06', width: 4, linecap: 'round', linejoin: 'round' })
+      }
+      return cv
+    })
+
+   function  onClick() {
+      path.value.animate(2000).plot('M10 80 C 40 150, 65 150, 95 80 S 150 10, 180 80').loop(true, true)
+     .stroke({color: '#2084a8'})
+    }
 
 
     onMounted(() => {
@@ -256,7 +281,7 @@ export default defineComponent({
       })
     })
 
-    return { position }
+    return { position, svgFile, ticker, cv, onClick }
   }
 })
 </script>
