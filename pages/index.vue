@@ -1,7 +1,8 @@
 <template>
   <div>
+    <div class='fixed bg-gray-300 z-50'> {{ position }}
+    </div>
     <layout-header />
-    {{ position }}
     <div style=' width: 300px' class='mt-20 bg-yellow-200'>
       <p class='line-clamp-6 hover:line-clamp-none'>
         Et molestiae hic earum repellat aliquid est doloribus delectus. Enim illum odio porro ut omnis dolor debitis
@@ -16,20 +17,38 @@
         Et molestiae hic earum repellat aliquid est doloribus delectus. Enim illum odio porro ut omnis dolor debitis
         natus. Voluptas possimus deserunt sit delectus est saepe nihil. Qui voluptate possimus et quia. Eligendi
         voluptas voluptas dolor cum. Rerum est quos quos id ut molestiae fugit.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eos magnam quisquam repudiandae soluta suscipit
+        veritatis. Aut cupiditate deleniti distinctio eaque fuga in incidunt ipsam magni quisquam, vel vero voluptatem.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus amet architecto deserunt earum facere fugit
+        iusto laudantium magnam minus modi mollitia omnis praesentium ratione, soluta sunt tenetur veniam. Blanditiis,
+        nulla?
       </p>
 
 
     </div>
     <a class='btn'>Hello!</a>
     <icon-hero-academic-cap class='text-8xl' />
-    <div class='bg-blue-200 grid grid-cols-3'>
-      <div class='bg-yellow-300 '>
+    <div class='bg-blue-200 flex overflow-y-hidden'>
+      <div class='bg-yellow-700 flex-1'>
         <div
           :style='`transform: translateY(${position}px) translateX(${position}px) rotate3d(0, 1, 0, ${position%360}deg)`'
           class='bg-secondary w-52 h-[100px]'>lol
         </div>
+        <div style='height: 1000px'></div>
+        <div class='text-white mt-[200px]' :style='`opacity: ${(position - 1000)/350};`'>Lorem ipsum dolor sit amet,
+          consectetur
+          adipisicing elit. Accusantium aspernatur autem consectetur, cumque
+          dolore doloremque eius expedita facilis harum mollitia necessitatibus nihil praesentium, quam qui sint ullam
+          vitae voluptas voluptate!
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. At doloribus ex explicabo, illo incidunt magni nam
+          odio quam sint suscipit. Alias fugit molestiae optio perferendis possimus, reiciendis suscipit tempore
+          voluptatibus.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, aliquid architecto consequatur ea
+          eveniet modi natus officiis praesentium tenetur voluptas! A error illo laudantium nisi nulla pariatur
+          recusandae sequi totam.
+        </div>
       </div>
-      <div>
+      <div :style='`width: ${position}px;`' class='max-w-[800px] overflow-hidden'>
         <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquid aut excepturi fugit illo ipsa, ipsam
           labore, mollitia nemo nesciunt, officia officiis placeat quae similique tempora totam vitae voluptate
           voluptatum.
@@ -215,7 +234,10 @@
           voluptatem.
         </div>
       </div>
-      <div class='bg-green-700'></div>
+      <div class='bg-green-700 flex-1'>lol</div>
+    </div>
+    <div class='bg-green-300'>
+
     </div>
   </div>
 </template>

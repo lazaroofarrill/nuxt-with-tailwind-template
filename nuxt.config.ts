@@ -36,7 +36,8 @@ const config: NuxtConfig = {
     '@nuxtjs/tailwindcss',
     // 'nuxt-vite',
     ['nuxt-storm', { nested: true }],
-    '@nuxtjs/composition-api/module'
+    '@nuxtjs/composition-api/module',
+    'nuxt-gsap-module'
   ],
   tailwindcss: {
     jit: true
